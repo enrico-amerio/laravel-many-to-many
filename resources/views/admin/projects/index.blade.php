@@ -10,13 +10,27 @@
             <tr>
             <th scope="col">Type</th>
             <th scope="col">Title</th>
+            <th scope="col">Technologies</th>
             <th scope="col">Description</th>
             </tr>
         </thead>
-        <tbody>@foreach ($projects as $project )
+        <tbody>
+            @foreach ($projects as $project )
             <tr>
                 <td>{{$project->type?->name}}</td>
                 <td>{{$project->title}}</td>
+                <td>
+
+                    @forelse ($project->technologies as $technologie)
+
+                    <ul>
+                        <li>{{$technologie->name}}</li>
+                    </ul>
+
+                    @empty
+                        ---
+                    @endforelse
+                </td>
                 <td>{{$project->description}}</td>
                 <td>
                     <div class="d-flex">
