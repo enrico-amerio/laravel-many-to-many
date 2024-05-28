@@ -33,6 +33,17 @@
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
+                <div class="btn-group mt-2" role="group" aria-label="Basic checkbox toggle button group">
+
+                    @foreach ($technologies as $technologie)
+
+                    <input type="checkbox" class="btn-check" id="{{ $technologie->id }}" autocomplete="off" value="{{ $technologie->id }}" name="technologies[]" @if (in_array($technologie->id, old('technologies', [])))
+                     checked
+                    @endif>
+                    <label class="btn btn-outline-primary" for="{{ $technologie->id }}">{{ $technologie->name }}</label>
+                    @endforeach
+
+                  </div>
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter description">{{old('description')}}</textarea>
