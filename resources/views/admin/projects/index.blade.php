@@ -34,11 +34,12 @@
                 <td>{{$project->description}}</td>
                 <td>
                     <div class="d-flex">
-                        <a class="btn btn-primary me-1" href="{{route('admin.projects.edit', $project->id)}}">modifica</a>
+                        <a class="btn btn-warning me-1" href="{{route('admin.projects.show', $project->id)}}">Info</a>
+                        <a class="btn btn-primary me-1" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a>
                         <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"class="btn btn-danger" >cancella</button>
+                            <button type="submit"class="btn btn-danger" >Cancella</button>
                           </form>
                     </div>
                 </td>
